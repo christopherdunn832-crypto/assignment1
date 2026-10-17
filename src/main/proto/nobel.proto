@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package nobel;
+
+service NobelService {
+
+  // Query 1
+  rpc CountLaureatesByCategory(CategoryRequest)
+      returns (CountResponse);
+
+  // Query 2
+  rpc CountByKeyword(KeywordRequest)
+      returns (CountResponse);
+
+  // Query 3
+  rpc FindLaureate(LaureateRequest)
+      returns (LaureateResponse);
+}
+
+message CategoryRequest {
+  string category = 1;
+  int32 startYear = 2;
+  int32 endYear = 3;
+}
+
+message KeywordRequest {
+  string keyword = 1;
+}
+
+message LaureateRequest {
+  string firstName = 1;
+  string lastName = 2;
+}
+
+message CountResponse {
+  int32 count = 1;
+}
+
+message LaureateResponse {
+  string year = 1;
+  string category = 2;
+  string motivation = 3;
+}
