@@ -65,24 +65,4 @@ public class NobelServiceImpl
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
-    @Override
-    public void findLaureate(
-            Nobel.LaureateRequest request,
-            StreamObserver<Nobel.LaureateResponse> responseObserver) {
-
-        LaureateRecord result =
-                service.findLaureateRecord(
-                        request.getFirstName(),
-                        request.getLastName());
-
-        Nobel.LaureateResponse response =
-                Nobel.LaureateResponse.newBuilder()
-                        .setYear(result.year())
-                        .setCategory(result.category())
-                        .setMotivation(result.motivation())
-                        .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
-    }
 }
