@@ -1,5 +1,5 @@
 FROM eclipse-temurin:23
 
-COPY target/*.jar app.jar
+COPY target/assignment1-1.0-SNAPSHOT-shaded.jar app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]
